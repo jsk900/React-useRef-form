@@ -1,25 +1,24 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 
 const App = () => {
   const nameRef = useRef();
   const ageRef = useRef();
   const emailRef = useRef();
-  const formDataRef = useRef({ name: '', age: '', email: '' });
+  const [formData, setFormData] = useState({ name: '', age: '', email: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    formDataRef.current.name = nameRef.current.value;
-    formDataRef.current.age = ageRef.current.value;
-    formDataRef.current.email = emailRef.current.value;
+    setFormData({
+      name: nameRef.current.value,
+      age: ageRef.current.value,
+      email: emailRef.current.value,
+    });
 
     nameRef.current.value = '';
     ageRef.current.value = '';
     emailRef.current.value = '';
   };
-
-  console.log(formDataRef.current);
 
   return (
     <main>
@@ -45,9 +44,9 @@ const App = () => {
         />
         <button onClick={handleSubmit}>submit</button>
       </form>
-      <p>{formDataRef.current.name}</p>
-      <p>{formDataRef.current.age}</p>
-      <p>{formDataRef.current.email}</p>
+      <p>{formData.name}</p>
+      <p>{formData.age}</p>
+      <p>{formData.email}</p>
     </main>
   );
 };
