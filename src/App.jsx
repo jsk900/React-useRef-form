@@ -24,24 +24,9 @@ const App = () => {
     <main>
       <h1>Welcome to React</h1>
       <form>
-        <input
-          type='text'
-          placeholder='Name'
-          //value={nameRef.current}
-          ref={nameRef}
-        />
-        <input
-          type='text'
-          placeholder='Age'
-          //value={ageRef.current}
-          ref={ageRef}
-        />
-        <input
-          type='text'
-          placeholder='Email'
-          //value={emailRef.current}
-          ref={emailRef}
-        />
+        <input type='text' placeholder='Name' ref={nameRef} />
+        <input type='text' placeholder='Age' ref={ageRef} />
+        <input type='text' placeholder='Email' ref={emailRef} />
         <button onClick={handleSubmit}>submit</button>
       </form>
       <p>{formData.name}</p>
